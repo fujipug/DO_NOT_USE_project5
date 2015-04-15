@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block titleBlock %} Sign_Up {% endblock %}
+{% block body %}
+<h1>Sign In</h1>
+<form action="/sign_in/" method="post" class="form">
+    {% csrf_token %}
+    <div style="color:red; font-size:16pt;">{{ error }}</div>
+    {% bootstrap_form sign_in_form %}
+    {% buttons %}
+    <button type="submit" class="btn btn-primary btn-lg">
+        Sign In
+    </button>
+    {% endbuttons %}
+</form>
+{% endblock %}

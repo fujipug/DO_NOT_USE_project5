@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block titleBlock %} Profiles {% endblock %}
+{% block body %}
+<h1>Profiles</h1>
+{% for p in users %}
+    <div>
+        <a href="/profile/{{ p.id }}/">
+            <p> {{ p.name }} | {{ p.email }} | {{ p.email }} </p>
+        </a>
+    </div>
+{% endfor %}
+{% endblock %}

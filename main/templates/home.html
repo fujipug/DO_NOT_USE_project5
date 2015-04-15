@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block titleBlock %} Home {% endblock %}
+{% block body %}
+{% if user.is_authenticated %}
+<p>Welcome {{ user.username }}!</p>
+<br>
+<a class="btn btn-primary" href='/profile/{{ user.id }}'> Profile </a>
+<a class="btn btn-primary" href='/sign_out/'> Sign Out? </a>
+{% else %}
+<p>Welcome Guest!</p>
+<br>
+<a class="btn btn-primary" href='/sign_up'> Sign Up </a>
+<a class="btn btn-default" href='/sign_in/'> Sign In</a>
+{% endif %}
+{% endblock %}

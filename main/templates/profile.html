@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block titleBlock %} {{ profile_user.username }} {% endblock %}
+{% block body %}
+<h1>Profile</h1>
+<p> Username: {{ profile_user.username }} </p>
+<p> Name: {{ myuser.name }} </p>
+<p> Email: {{ myuser.email }} </p>
+<br>
+<h2 align="center">YOUR POSTS</h2>
+{% for p in posts %}
+    {% if p.user.id == profile_user.id %}
+    <div>
+        <h4>{{ p.created }}</h4>
+        <strong><b>{{ p.title }}</b></strong> | <br>
+        {{ p.body }}<br>
+    </div>
+    {% endif %}
+{% endfor %}
+{% endblock %}

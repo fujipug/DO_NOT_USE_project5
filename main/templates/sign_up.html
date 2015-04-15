@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block nav-home %}class="active"{% endblock %}
+{% block titleBlock %} Sign-Up {% endblock %}
+{% block body %}
+
+<div class="container" style="width:400px;">
+    <h2 class="page-header">Signup to start blogging</h2>
+
+    <form action="/sign_up/" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form user_form %}
+        {% bootstrap_form myuser_form %}
+        {% buttons %}
+        <button type="submit" class="btn btn-primary btn-lg">
+            Submit
+        </button>
+        {% endbuttons %}
+    </form>
+</div>
+{% endblock %}
